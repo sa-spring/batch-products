@@ -1,6 +1,5 @@
 package com.example.batch.service;
 
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.batch.core.ExitStatus;
@@ -38,13 +37,11 @@ public class JsonFileReader implements StepExecutionListener, ItemReader<JsonNod
 
     @Override
     public ExitStatus afterStep(StepExecution stepExecution) {
-
         return null;
     }
 
     @Override
     public JsonNode read() throws Exception {
-
         if (objectMapper == null)
             objectMapper = new ObjectMapper();
 

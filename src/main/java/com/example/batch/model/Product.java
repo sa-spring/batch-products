@@ -11,12 +11,11 @@ public class Product {
 
     private String main_cat;
 
-//    private String title;
+    private String title;
 
     private String asin;
 
     private List<String> category;
-
 
     private List<String> imageURLHighRes;
 }

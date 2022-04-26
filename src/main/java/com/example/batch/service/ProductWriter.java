@@ -8,7 +8,7 @@ import org.springframework.batch.item.ItemWriter;
 
 import java.util.List;
 
-public class ProductWriter implements ItemWriter<Product> , StepExecutionListener {
+public class ProductWriter implements ItemWriter<Product>, StepExecutionListener {
     @Override
     public void beforeStep(StepExecution stepExecution) {
 

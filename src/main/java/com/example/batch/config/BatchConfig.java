@@ -20,8 +20,8 @@ import org.springframework.core.task.TaskExecutor;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 
-//@Configuration
-//@EnableBatchProcessing
+@Configuration
+@EnableBatchProcessing
 public class BatchConfig {
 
 
@@ -34,7 +34,7 @@ public class BatchConfig {
 
     @Bean
     public ItemReader<JsonNode> itemReader() {
-        return new JsonFileReader("/Users/chun/Downloads/meta_Clothing_Shoes_and_Jewelry/meta_Clothing_Shoes_and_Jewelry.json");
+        return new JsonFileReader("/home/java/meta_Clothing_Shoes_and_Jewelry.json");
     }
 
     @Bean
@@ -49,12 +49,11 @@ public class BatchConfig {
 
     @Bean
     protected Step processProducts(ItemReader<JsonNode> reader, ItemProcessor<JsonNode, Product> processor, ItemWriter<Product> writer) {
-        return stepBuilderFactory.get("processProducts").<JsonNode, Product> chunk(20)
+        return stepBuilderFactory.get("processProducts").<JsonNode, Product>chunk(20)
                 .reader(reader)
                 .processor(processor)
                 .writer(writer)
                 .taskExecutor(taskExecutor())
-                .throttleLimit(4)
                 .build();
     }
 
