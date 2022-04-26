@@ -11,7 +11,7 @@ public class Product {
 
     private String main_cat;
 
-    private String title;
+//    private String title;
 
     private String asin;
 
